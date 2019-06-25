@@ -1,0 +1,198 @@
+/**index.wxss**/
+.index{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-box {
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.4s cubic-bezier(1, 1, 0, 0.42);
+  transform: translate(0%, 0%);
+  position: relative;
+}
+
+.video-box .video-list {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.video-box .video-list video {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.user {
+  color: #fff;
+  border-radius: 48rpx;
+  height: 90rpx;
+  position: absolute;
+  bottom: 224rpx;
+  left: 30rpx;
+  z-index: 13;
+  font-size: 30rpx;
+}
+
+.user .user-rf {
+  min-width: 500rpx;
+}
+
+.yiguanzhu {
+  width: 114rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #ddd;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.name {
+}
+
+.name  .name-child {
+  margin-right: 20rpx;
+  max-width: 360rpx;
+}
+
+.site {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.site .address {
+  width: 24rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+
+.head {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+
+.label {
+  min-width: 90rpx;
+  height: 44rpx;
+  border-radius: 28rpx;
+  background: #ff6619;
+  font-size: 22rpx;
+}
+
+.label .zhengque {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 6rpx;
+  display: inline-block;
+}
+
+.icon-box {
+  width: 80rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 160rpx;
+  z-index: 13;
+  text-align: center;
+  font-size: 22rpx;
+}
+
+.icon-box  .icon-list {
+  margin-top: 40rpx;
+  padding: 0;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  box-shadow: none;
+  line-height: 1.4;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.icon-box  .icon-list image {
+  margin-bottom: 6rpx;
+}
+
+.icon-box  .icon-list	.dianzan {
+  width: 56rpx;
+  height: 58rpx;
+}
+
+.icon-box  .icon-list	.pinglun {
+  width: 60rpx;
+  height: 56rpx;
+}
+
+.icon-box  .icon-list	.fenxiang {
+  width: 60rpx;
+  height: 46rpx;
+}
+
+.icon-box  .icon-list	.schu {
+  width: 44rpx;
+  height: 58rpx;
+}
+
+.icon-box  .icon-list	.font-list {
+  font-size: 24rpx;
+  line-height: 1.1;
+}
+
+.icon-box  .icon-list:after {
+  border: none;
+}
+
+.tag {
+  position: absolute;
+  color: #fff;
+  max-width: 520rpx;
+  height: 160rpx;
+  bottom: 40rpx;
+  left: 30rpx;
+  font-size: 26rpx;
+  z-index: 13;
+}
+
+.tag .tag-child {
+  padding: 0 20rpx;
+  height: 42rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  margin-bottom: 14rpx;
+}
+
+.tag .jinghao {
+  display: inline-block;
+  width: 18rpx;
+  height: 18rpx;
+  margin-right: 8rpx;
+}
+
+.progress-bar-box {
+  width: 750rpx;
+  height: 6rpx;
+  background: #bebebe;
+  border-radius: 6rpx;
+  z-index: 18;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.progress-bar-box  .progress {
+  width: "0%";
+  height: 6rpx;
+  background: #f26624;
+  border-radius: 6rpx;
+  z-index: 14;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

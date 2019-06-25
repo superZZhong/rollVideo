@@ -1,0 +1,97 @@
+/*** 兼容 ***/
+.flex {
+	display: -webkit-box;
+	/* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+
+	display: -moz-flex;
+	/* 老版本语法: Firefox (buggy) */
+
+	display: -ms-flex;
+	/* 混合版本语法: IE 10 */
+
+	display: -webkit-flex;
+	/* 新版本语法: Chrome 21+ */
+
+	display: flex;
+	/* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+/*** flex主轴起点方向 ***/
+.flex-direction-left {
+	flex-direction: row;
+	/*自左到右*/
+}
+
+.flex-direction-right {
+	flex-direction: row-reverse;
+	/*自右到左*/
+}
+
+.flex-direction-top {
+	flex-direction: column;
+	/*自上到下*/
+}
+
+.flex-direction-left {
+	flex-direction: column-reverse;
+	/*自下到上*/
+}
+
+/*** 换行规则 ***/
+.flex-wrap-nowrap {
+	flex-wrap: nowrap;
+	/*默认不换行*/
+}
+
+.flex-wrap-wrap {
+	flex-wrap: wrap;
+	/*换行*/
+}
+
+.flex-wrap-reverse {
+	flex-wrap: wrap-reverse;
+	/*换行，第一行在下方*/
+}
+
+/*** 主轴上对齐方式 ***/
+.flex-justifyStart {
+	justify-content: flex-start;
+	/*默认,左对齐*/
+}
+
+.flex-justifyEnd {
+	justify-content: flex-end;
+	/*右对齐*/
+}
+
+.flex-justifyCenter {
+	justify-content: center;
+	/*居中*/
+}
+
+.flex-justifyTwo {
+	justify-content: space-between;
+	/*两端对齐，项目之间的间隔都相等*/
+}
+
+.flex-justifyAround {
+	justify-content: space-around;
+	/*每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。*/
+}
+
+/*** 交叉轴上对齐方式 ***/
+.flex-alignItems {
+	-webkit-box-align: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+/*** 项目的放大比例，默认为0，即如果存在剩余空间，也不放大 ***/
+.flex-grow-0 {
+	flex-grow: 0;
+}
+
+.flex-grow-1 {
+	flex-grow: 1;
+}

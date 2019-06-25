@@ -1,0 +1,108 @@
+<!--index.wxml-->
+<view class="index"
+  
+  bindtouchstart="onTouchstart"
+  bindtouchmove="onTouchmove" 
+  bindtouchend="onTouchend"
+>
+  <!-- 视频盒子 -->
+  <view class="video-box" 
+    style="transform: {{translateParam}}" 
+  >
+    <!-- 视频列表 -->
+    <!-- 
+      这里用wx：if只给他渲染5块含video的节点view，
+      避免渲染过多节点，别人我都不告诉哦
+    -->
+    <view class='video-list' 
+      wx:for="{{videoList}}" 
+      wx:key="{{index}}" 
+      wx:if="(index+3)>videoIndex&&videoIndex>(index-3)"
+      style="top:{{index*100+'%'}}"
+    >
+      <!-- 
+        video这里给大家提个醒，
+        在android下多个video同时预加载时只会加载一个，
+        这里我用initial-time 强制加载到1S 解决这个问题
+        不要担心会提前播放1S，当你视频切换视频时候不是又回到0拉
+      -->
+      <video
+        id="{{'myVideo'+index}}"
+
+        controls="{{false}}" 
+        show-progress="{{false}}" 
+        show-play-btn="{{false}}" 
+        show-fullscreen-btn="{{false}}"
+        show-center-play-btn="{{false}}" 
+        enable-progress-gesture="{{false}}" 
+        custom-cache="{{false}}"
+        initial-time="{{videoIndex==index?0:1}}"  
+        src="{{item.src}}"
+
+        bindtimeupdate="timeupdate"
+      >
+      </video>
+    </view> 
+  </view>
+</view>
+
+<!-- 用户 -->
+<cover-view class="user flex flex-alignItems">
+  <cover-image src="../../static/images/defaultUserHead.png" class="head"></cover-image>
+  <cover-view class="user-rf">
+    <cover-view class="flex flex-alignItems name">
+      <cover-view class="name-child hide1">酷酷的磨磨虫</cover-view>
+      <cover-view class="label label2 flex flex-alignItems flex-justifyCenter">
+        <cover-image src="../../static/images/guanzhu.png" class="zhengque guanzhu"></cover-image>
+        <cover-view>关注</cover-view>
+      </cover-view>
+    </cover-view>
+    <!-- 地址 -->
+    <cover-view class="site flex flex-alignItems" >
+      <cover-image src="https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/weizhi.png" class="address"></cover-image>
+      <cover-view>深圳南山小院</cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>
+
+<view class="icon-box">
+  <!-- 点赞 -->
+  <view class="icon-list" bindtap="videoLike">
+    <image class="dianzan" src="https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/video_like_praise.png" wx:if="{{videoParam.like==1}}"></image>
+    <image class="dianzan" src="https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/video_info_praise.png" wx:else></image>
+    <view wx:if="{{videoParam.likeCount==0}}">点赞</view>
+    <view wx:else class="font-list">{{videoParam.likeCount}}</view>
+  </view>
+  <!-- 评论 -->
+  <view class="icon-list">
+    <image class="pinglun" src="../../static/images/video_info_comments.png"
+      mode=""></image>
+    <view v-if="videoParam.commentNum==0">评论</view>
+    <view v-else class="font-list">{{videoParam.commentNum}}</view>
+  </view>
+  <!-- 分享 -->
+  <button class="icon-list" open-type="share">
+    <image class="fenxiang" src="https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/video_info_share.png"></image>
+    <view>转发</view>
+  </button>
+</view>
+
+<!-- 话题 描述 -->
+<cover-view class="tag">
+  <cover-view class="flex flex-alignItems">
+    <cover-view class="tag-child flex flex-alignItems">
+      <cover-image src="../../static/images/juxingWhit.png" class="jinghao"></cover-image>
+      <cover-view class="topicName-content hide1">{{videoParam.topic}}</cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view>{{videoParam.description}}</cover-view>
+</cover-view>
+
+<!-- 进度条 -->
+<cover-view class="progress-bar-box">
+  <cover-view class="progress" style="width:{{progressTime}}"></cover-view>
+</cover-view>
+
+
+<!-- 评论 -->
+<!-- 评论弹窗不想写了 回家 2019/6/24 19:38 -->
