@@ -17,7 +17,7 @@
     <view class='video-list' 
       wx:for="{{videoList}}" 
       wx:key="{{index}}" 
-      wx:if="(index+3)>videoIndex&&videoIndex>(index-3)"
+      wx:if="{{(index+3)>videoIndex&&videoIndex>(index-3)}}"
       style="top:{{index*100+'%'}}"
     >
       <!-- 

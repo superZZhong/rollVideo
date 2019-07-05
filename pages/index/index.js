@@ -4,6 +4,68 @@ const app = getApp()
 let videoContext = null; //video实例
 let stopTouch = false; //滑动权限
 let deltaY = 0; //滑动距离
+let videoList = [{
+  id: '111',
+  title: '标题1',
+  like: 0,
+  likeCount: 111,
+  follow: 0,
+  topic: '帅气',
+  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
+  site: '深圳南山小院',
+  description: '描述1111111111',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/32kdwsLEtykA.mp4'
+},
+{
+  id: '222',
+  title: '标题2',
+  like: 0,
+  likeCount: 222,
+  follow: 0,
+  topic: '汽车',
+  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
+  site: '深圳南山小院',
+  description: '描述222222222',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/73nKBst9USoA.mp4'
+},
+{
+  id: '333',
+  title: '标题3',
+  like: 0,
+  likeCount: 333,
+  follow: 0,
+  topic: '帅气',
+  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
+  site: '深圳南山小院',
+  description: '描述33333333333',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/8ywAEcZYguQA.mp4'
+},
+{
+  id: '444',
+  title: '标题4',
+  like: 0,
+  likeCount: 444,
+  follow: 0,
+  topic: '美女',
+  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
+  site: '深圳南山小院',
+  description: '描述44444444444',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/f0.mp4'
+},
+{
+  id: '555',
+  title: '标题5',
+  like: 0,
+  likeCount: 555,
+  follow: 0,
+  topic: '食物',
+  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
+  site: '深圳南山小院',
+  description: '描述5555555555555',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4'
+}
+]
+
 
 Page({
   data: {
@@ -97,15 +159,20 @@ Page({
     this.setData({
       videoId: e.videoId || "444"
     })
+
+    let videoIndex = this.data.videoList.findIndex(v => v.id == this.data.videoId)
+    this.setData({
+      videoIndex
+    })
+
+    this.tabHome(videoIndex)
     this.watchVideoId()
   },
   // 模拟vue watch 待学习 太懒 后面补充 
   watchVideoId() {
-    let videoIndex = this.data.videoList.findIndex(v => v.id == this.data.videoId)
     let list = this.data.videoList
-
+    let videoIndex = this.data.videoIndex
     this.setData({
-      videoIndex,
       videoParam: list[videoIndex]
     })
 
@@ -113,7 +180,10 @@ Page({
     // 当滑动到最后一个视频的时候 加载视频列表
     if (l == videoIndex) {
       console.log('滑动到最后一个是该加载数据啦')
-
+      let list =this.data.videoList
+      this.setData({
+        videoList: [...list,...videoList]
+      })
     }
 
     this.setVideoParam(videoIndex)
@@ -124,7 +194,6 @@ Page({
       videoParam: this.data.videoList[i], //数据初始化
       progressTime: "0%", //进度条初始化
     })
-    this.tabHome()
 
     //异步播放 避免获取不到video实例
     setTimeout(() => {
@@ -133,9 +202,8 @@ Page({
     }, 600)
   },
   // 切换视频
-  tabHome() {
-    let n = this.data.videoIndex
-    let top = -n * 100
+  tabHome(i) {
+    let top = -(i) * 100
     this.setData({
       translateParam: `translate(0%,${top}%)`
     })
@@ -184,7 +252,7 @@ Page({
     let list = this.data.videoList //视频数组
     let videoIndex = this.data.videoIndex //视频索引
     let videoId = this.data.videoId //视频id
-
+    console.log(videoIndex)
     //时间超过3秒滑动无效 这里暂时不操作
     if ((endTime - startTime) > 3000) {
 
@@ -209,8 +277,8 @@ Page({
         return
       }
 
-      this.deteleVideo()
-      this.setVideoId(videoIndex - 1)
+      videoIndex-=1
+      this.tabHome(videoIndex)
     }
 
     // 滑动小于-30执行 上滑
@@ -222,23 +290,30 @@ Page({
         return
       }
 
-      this.deteleVideo()
-      this.setVideoId(videoIndex + 1)
+      videoIndex += 1
+      this.tabHome(videoIndex)
     }
+
+    console.log(videoIndex)
+    // 停止视频
+    this.deteleVideo()
 
     //初始化配置参数
     deltaY = 0
     this.setData({
       ['touch.time']: 0
     })
-    this.watchVideoId()
+
+    setTimeout(() => {
+      // 先执行动画 在切换视频 提升流畅性
+      this.setIndex(videoIndex)
+      this.watchVideoId()
+    }, 400)
   },
   // 根据索引修改视频id
-  setVideoId(i) {
-    let list = this.data.videoList
-    let videoId = list[i].id
+  setIndex(i) {
     this.setData({
-      videoId
+      videoIndex:i
     })
   },
   //暂停或停止video
