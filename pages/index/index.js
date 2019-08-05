@@ -14,123 +14,61 @@ let videoList = [{
   headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
   site: '深圳南山小院',
   description: '描述1111111111',
-  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/32kdwsLEtykA.mp4'
-},
-{
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4',
+  pic: 'https://jxtt.diangoumall.com/149c30b0vodcq1258058953/0c8c9fed5285890784213263168/5285890784213263169.jpg'
+}, {
   id: '222',
-  title: '标题2',
+  title: '标题1',
   like: 0,
-  likeCount: 222,
-  follow: 0,
-  topic: '汽车',
-  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
-  site: '深圳南山小院',
-  description: '描述222222222',
-  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/73nKBst9USoA.mp4'
-},
-{
-  id: '333',
-  title: '标题3',
-  like: 0,
-  likeCount: 333,
+  likeCount: 111,
   follow: 0,
   topic: '帅气',
   headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
   site: '深圳南山小院',
-  description: '描述33333333333',
-  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/8ywAEcZYguQA.mp4'
-},
-{
+  description: '描述1111111111',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4',
+  pic: 'https://jxtt.diangoumall.com/149c30b0vodcq1258058953/0c8c9fed5285890784213263168/5285890784213263169.jpg'
+}, {
+  id: '333',
+  title: '标题1',
+  like: 0,
+  likeCount: 111,
+  follow: 0,
+  topic: '帅气',
+  headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
+  site: '深圳南山小院',
+  description: '描述1111111111',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4',
+  pic: 'https://jxtt.diangoumall.com/149c30b0vodcq1258058953/0c8c9fed5285890784213263168/5285890784213263169.jpg'
+}, {
   id: '444',
-  title: '标题4',
+  title: '标题1',
   like: 0,
-  likeCount: 444,
+  likeCount: 111,
   follow: 0,
-  topic: '美女',
+  topic: '帅气',
   headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
   site: '深圳南山小院',
-  description: '描述44444444444',
-  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/f0.mp4'
-},
-{
+  description: '描述1111111111',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4',
+  pic: 'https://jxtt.diangoumall.com/149c30b0vodcq1258058953/0c8c9fed5285890784213263168/5285890784213263169.jpg'
+}, {
   id: '555',
-  title: '标题5',
+  title: '标题1',
   like: 0,
-  likeCount: 555,
+  likeCount: 111,
   follow: 0,
-  topic: '食物',
+  topic: '帅气',
   headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
   site: '深圳南山小院',
-  description: '描述5555555555555',
-  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4'
-}
-]
-
-
+  description: '描述1111111111',
+  src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4',
+  pic: 'https://jxtt.diangoumall.com/149c30b0vodcq1258058953/0c8c9fed5285890784213263168/5285890784213263169.jpg'
+}]
 Page({
   data: {
     // 视频列表
-    videoList: [{
-        id: '111',
-        title: '标题1',
-        like: 0,
-        likeCount: 111,
-        follow: 0,
-        topic: '帅气',
-        headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
-        site: '深圳南山小院',
-        description: '描述1111111111',
-        src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/32kdwsLEtykA.mp4'
-      },
-      {
-        id: '222',
-        title: '标题2',
-        like: 0,
-        likeCount: 222,
-        follow: 0,
-        topic: '汽车',
-        headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
-        site: '深圳南山小院',
-        description: '描述222222222',
-        src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/73nKBst9USoA.mp4'
-      },
-      {
-        id: '333',
-        title: '标题3',
-        like: 0,
-        likeCount: 333,
-        follow: 0,
-        topic: '帅气',
-        headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
-        site: '深圳南山小院',
-        description: '描述33333333333',
-        src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/8ywAEcZYguQA.mp4'
-      },
-      {
-        id: '444',
-        title: '标题4',
-        like: 0,
-        likeCount: 444,
-        follow: 0,
-        topic: '美女',
-        headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
-        site: '深圳南山小院',
-        description: '描述44444444444',
-        src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/f0.mp4'
-      },
-      {
-        id: '555',
-        title: '标题5',
-        like: 0,
-        likeCount: 555,
-        follow: 0,
-        topic: '食物',
-        headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
-        site: '深圳南山小院',
-        description: '描述5555555555555',
-        src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4'
-      }
-    ],
+    videoList,
     // 当前播放视频
     videoParam: {
       id: '333',
@@ -142,7 +80,7 @@ Page({
       headPic: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/my.jpg',
       site: '深圳南山小院',
       description: '描述33333333333',
-      src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/8ywAEcZYguQA.mp4'
+      src: 'https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/videoDemo/uMt7xJfz6DUA.mp4'
     },
     //滑动参数
     touch: {
@@ -152,7 +90,7 @@ Page({
     },
     videoId: '333', // 视频Id
     videoInde: '', //视频索引
-    translateParam: "translate(0%,-100%)", //视图位置
+    translateParam: "translateY(-100%)", //视图位置
     progressTime: "0%", //进度条
   },
   onLoad: function(e) {
@@ -180,9 +118,9 @@ Page({
     // 当滑动到最后一个视频的时候 加载视频列表
     if (l == videoIndex) {
       console.log('滑动到最后一个是该加载数据啦')
-      let list =this.data.videoList
+      let list = this.data.videoList
       this.setData({
-        videoList: [...list,...videoList]
+        videoList: [...list, ...videoList]
       })
     }
 
@@ -196,26 +134,24 @@ Page({
     })
 
     //异步播放 避免获取不到video实例
-    setTimeout(() => {
-      videoContext = wx.createVideoContext('myVideo' + this.data.videoIndex)
-      videoContext && videoContext.play()
-    }, 600)
+    videoContext = wx.createVideoContext('myVideo' + this.data.videoIndex)
+    videoContext && videoContext.play()
   },
   // 切换视频
   tabHome(i) {
     let top = -(i) * 100
     this.setData({
-      translateParam: `translate(0%,${top}%)`
+      translateParam: `translateY(${top}%)`
     })
   },
   // 播放心跳
   timeupdate(e) {
     // console.log(e)
-    let total = e.detail.duration || 0
-    let newTime = e.detail.currentTime || 0
-    this.setData({
-      progressTime: (newTime / total * 100) + "%" || this.data.progressTime
-    })
+    // let total = e.detail.duration || 0
+    // let newTime = e.detail.currentTime || 0
+    // this.setData({
+    //   progressTime: (newTime / total * 100) + "%" || this.data.progressTime
+    // })
   },
   onTouchstart(e) {
     // console.log('开始')
@@ -277,7 +213,7 @@ Page({
         return
       }
 
-      videoIndex-=1
+      videoIndex -= 1
       this.tabHome(videoIndex)
     }
 
@@ -313,7 +249,7 @@ Page({
   // 根据索引修改视频id
   setIndex(i) {
     this.setData({
-      videoIndex:i
+      videoIndex: i
     })
   },
   //暂停或停止video
@@ -338,7 +274,7 @@ Page({
 
     this.setData({
       ['videoParam.like']: videoParam.like == 1 ? 0 : 1,
-      ['videoParam.likeCount']: videoParam.like == 1 ? videoParam.likeCount - 1:videoParam.likeCount + 1
+      ['videoParam.likeCount']: videoParam.like == 1 ? videoParam.likeCount - 1 : videoParam.likeCount + 1
     })
   }
 })

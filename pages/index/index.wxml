@@ -38,6 +38,7 @@
         custom-cache="{{false}}"
         initial-time="{{videoIndex==index?0:1}}"  
         src="{{item.src}}"
+        poster="{{item.pic}}"
 
         bindtimeupdate="timeupdate"
       >
