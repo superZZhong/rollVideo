@@ -1,3 +1,31 @@
+swiper {
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+}
+
+swiper video {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.play {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.video-pic{
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+
 /**index.wxss**/
 .index{
   width: 100vw;
