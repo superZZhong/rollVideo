@@ -1,139 +1,61 @@
-swiper {
+.browse {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  color: #FFFFFF;
+}
+
+.browse .title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  font-size: 38rpx;
+  z-index: 20;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browse .swiper-box {
   width: 100vw;
   height: 100vh;
   background: #000000;
 }
 
-swiper video {
+.browse .swiper-box .video-box {
   width: 100vw;
   height: 100vh;
-  display: block;
 }
 
-.play {
+.browse .videoLogo {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  background: rgba(0, 0, 0, 0.3);
+  left: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.browse .videoLogo .play {
   width: 128rpx;
   height: 128rpx;
 }
 
-.video-pic{
-  width: 100vw;
-  height: 100vh;
-  display: block;
-}
-
-
-/**index.wxss**/
-.index{
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.video-box {
-  width: 100vw;
-  height: 100vh;
-  transition: all 0.4s cubic-bezier(1, 1, 0, 0.42);
-  transform: translate(0%, 0%);
-  position: relative;
-}
-
-.video-box .video-list {
-  position: absolute;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-.video-box .video-list video {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-}
-
-.user {
-  color: #fff;
-  border-radius: 48rpx;
-  height: 90rpx;
-  position: absolute;
-  bottom: 224rpx;
-  left: 30rpx;
-  z-index: 13;
-  font-size: 30rpx;
-}
-
-.user .user-rf {
-  min-width: 500rpx;
-}
-
-.yiguanzhu {
-  width: 114rpx;
-  text-align: center;
-  line-height: 40rpx;
-  font-size: 24rpx;
-  color: #ddd;
-  height: 40rpx;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-}
-
-.name {
-}
-
-.name  .name-child {
-  margin-right: 20rpx;
-  max-width: 360rpx;
-}
-
-.site {
-  font-size: 24rpx;
-  margin-top: 10rpx;
-}
-
-.site .address {
-  width: 24rpx;
-  height: 26rpx;
-  margin-right: 10rpx;
-  display: inline-block;
-}
-
-.head {
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 50%;
-  margin-right: 18rpx;
-}
-
-.label {
-  min-width: 90rpx;
-  height: 44rpx;
-  border-radius: 28rpx;
-  background: #ff6619;
-  font-size: 22rpx;
-}
-
-.label .zhengque {
-  width: 20rpx;
-  height: 20rpx;
-  margin-right: 6rpx;
-  display: inline-block;
-}
-
-.icon-box {
-  width: 80rpx;
-  position: absolute;
-  right: 20rpx;
-  bottom: 160rpx;
+.browse .icon-box {
+  position: fixed;
+  right: 30rpx;
+  bottom: 80rpx;
   z-index: 13;
   text-align: center;
-  font-size: 22rpx;
+  font-size: 24rpx;
 }
 
-.icon-box  .icon-list {
-  margin-top: 40rpx;
+.browse .icon-box .icon-list {
+  width: 64rpx;
   padding: 0;
   background: rgba(0, 0, 0, 0);
   border: none;
@@ -141,86 +63,97 @@ swiper video {
   line-height: 1.4;
   color: #fff;
   font-size: 24rpx;
+  margin-top: 40rpx;
+  position: relative;
 }
 
-.icon-box  .icon-list image {
-  margin-bottom: 6rpx;
-}
-
-.icon-box  .icon-list	.dianzan {
-  width: 56rpx;
-  height: 58rpx;
-}
-
-.icon-box  .icon-list	.pinglun {
-  width: 60rpx;
-  height: 56rpx;
-}
-
-.icon-box  .icon-list	.fenxiang {
-  width: 60rpx;
-  height: 46rpx;
-}
-
-.icon-box  .icon-list	.schu {
-  width: 44rpx;
-  height: 58rpx;
-}
-
-.icon-box  .icon-list	.font-list {
-  font-size: 24rpx;
-  line-height: 1.1;
-}
-
-.icon-box  .icon-list:after {
+.browse .icon-box .icon-list:after {
   border: none;
 }
 
-.tag {
+.browse .icon-box .icon-list .icon-text {
   position: absolute;
-  color: #fff;
-  max-width: 520rpx;
-  height: 160rpx;
-  bottom: 40rpx;
-  left: 30rpx;
-  font-size: 26rpx;
-  z-index: 13;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: -20rpx;
+  text-align: center;
+  width: 100rpx;
 }
 
-.tag .tag-child {
-  padding: 0 20rpx;
-  height: 42rpx;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 4rpx;
+.browse .icon-box .icon-list .dianzan {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.browse .icon-box .icon-list .pinglun {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.browse .icon-box .icon-list .fenxiang {
+  width: 61rpx;
+  height: 58rpx;
+}
+
+.browse .icon-box .icon-list .font-list {
   font-size: 24rpx;
-  margin-bottom: 14rpx;
+  height: 32rpx;
 }
 
-.tag .jinghao {
-  display: inline-block;
-  width: 18rpx;
-  height: 18rpx;
-  margin-right: 8rpx;
-}
-
-.progress-bar-box {
-  width: 750rpx;
-  height: 6rpx;
-  background: #bebebe;
-  border-radius: 6rpx;
-  z-index: 18;
+.browse .user {
+  border-radius: 48rpx;
+  height: 90rpx;
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 180rpx;
+  left: 30rpx;
+  z-index: 13;
+  font-size: 30rpx;
 }
 
-.progress-bar-box  .progress {
-  width: "0%";
-  height: 6rpx;
-  background: #f26624;
-  border-radius: 6rpx;
-  z-index: 14;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.browse .user .head {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  position: relative;
+  background: #dedede;
+}
+
+.browse .user .head .head-pic {
+  width: 90rpx;
+  height: 90rpx;
+  display: block;
+  border-radius: 50%;
+}
+
+.browse .user .name {
+  max-width: 400rpx;
+  font-size: 32rpx;
+  padding-right: 20rpx;
+  padding-left: 18rpx;
+}
+
+.browse .user .site {
+  font-size: 24rpx;
+  padding-top: 4rpx;
+  padding-left: 18rpx;
+}
+
+.browse .user .site .address {
+  width: 24rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+
+.browse .user .site .site-child {
+  max-width: 500rpx;
+}
+
+.browse .tag {
+  position: fixed;
+  bottom: 100rpx;
+  left: 30rpx;
+  z-index: 13;
+  font-size: 26rpx;
+  width: 570rpx;
 }

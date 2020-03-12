@@ -1,83 +1,67 @@
-<swiper 
- vertical="{{true}}"
- circular="{{true}}"
- current="{{current}}"
- skip-hidden-item-layout="{{true}}"
- bindchange="changeCurrent"
- bindanimationfinish="changeItem"
->
-  <swiper-item item-id="{{oneItemParam.id}}">
-    <video 
-      
-      id="myVideo0"
-      src="{{oneItemParam.src}}"
-      poster="{{oneItemParam.pic}}"
-      custom-cache="{{false}}"
-      controls="{{false}}"
-      bindplay="eventPlay"
-      bindtap="tabVideo"
-    ></video>
-  </swiper-item>
-  
-  <swiper-item item-id="{{twoItemParam.id}}">
-    <video 
-      
-      id="myVideo1"
-      src="{{twoItemParam.src}}"
-      poster="{{twoItemParam.pic}}"
-      custom-cache="{{false}}"
-      controls="{{false}}"
-      bindplay="eventPlay"
-      bindtap="tabVideo"
-    ></video>
-  </swiper-item>
-  
-  <swiper-item item-id="{{threeItemParam.id}}">
-    <video 
-      
-      id="myVideo2"
-      src="{{threeItemParam.src}}"
-      poster="{{threeItemParam.pic}}"
-      custom-cache="{{false}}"
-      controls="{{false}}"
-      bindplay="eventPlay"
-      bindtap="tabVideo"
-    ></video>
-  </swiper-item>
-  
-</swiper>
+<!--pages/tab/browse/index.wxml-->
+<view class="browse">
+  <swiper class="swiper-box" duration="300" circular="{{circular}}" current="{{current}}" vertical="{{true}}" bindanimationfinish="swiperChange" bindtap="tabVideo">
+    <swiper-item wx:if="{{videoObjList[0].id}}" item-id="{{videoObjList[0].index}}">
+      <video bindplay="eventPlay" id="video0" class="video-box" poster="{{videoObjList[0].videoLogo}}" src="{{videoObjList[0].videoUrl}}" object-fit="contain" loop="{{true}}" controls="{{false}}" show-progress="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}"
+        show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" vslide-gesture-in-fullscreen="{{false}}"></video>
+    </swiper-item>
+    <swiper-item wx:if="{{videoObjList[1].id}}" item-id="{{videoObjList[1].index}}">
+      <video bindplay="eventPlay" id="video1" class="video-box" poster="{{videoObjList[1].videoLogo}}" src="{{videoObjList[1].videoUrl}}" object-fit="contain" loop="{{true}}" controls="{{false}}" show-progress="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}"
+        show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" vslide-gesture-in-fullscreen="{{false}}"></video>
+    </swiper-item>
+    <swiper-item wx:if="{{videoObjList[2].id}}" item-id="{{videoObjList[2].index}}">
+      <video bindplay="eventPlay" id="video2" class="video-box" poster="{{videoObjList[2].videoLogo}}" src="{{videoObjList[2].videoUrl}}" object-fit="contain" loop="{{true}}" controls="{{false}}" show-progress="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}"
+        show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" vslide-gesture-in-fullscreen="{{false}}"></video>
+    </swiper-item>
+  </swiper>
 
-<!-- 用户 -->
-<cover-view class="user flex flex-alignItems">
-  <cover-image src="../../static/images/defaultUserHead.png" class="head"></cover-image>
-  <cover-view class="user-rf">
-    <cover-view class="flex flex-alignItems name">
-      <cover-view class="name-child hide1">酷酷的磨磨虫</cover-view>
-      <cover-view class="label label2 flex flex-alignItems flex-justifyCenter">
-        <cover-image src="../../static/images/guanzhu.png" class="zhengque guanzhu"></cover-image>
-        <cover-view>关注</cover-view>
-      </cover-view>
-    </cover-view>
-    <!-- 地址 -->
-    <cover-view class="site flex flex-alignItems" >
-      <cover-image src="https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/weizhi.png" class="address"></cover-image>
-      <cover-view>深圳南山小院</cover-view>
-    </cover-view>
-  </cover-view>
-</cover-view>
+  <!-- 播放按钮 -->
+  <view class="videoLogo flex flex-alignItems flex-justifyCenter" wx:if="{{playStatus}}" bindtap="tabVideo">
+    <image class="play" src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoplay_btn.png"></image>
+  </view>
 
-<!-- 话题 描述 -->
-<cover-view class="tag">
-  <cover-view class="flex flex-alignItems">
-    <cover-view class="tag-child flex flex-alignItems">
-      <cover-image src="../../static/images/juxingWhit.png" class="jinghao"></cover-image>
-      <cover-view class="topicName-content hide1">{{videoParam.topic}}</cover-view>
-    </cover-view>
-  </cover-view>
-  <cover-view>{{videoParam.description}}</cover-view>
-</cover-view>
+  <!-- 用户 头像 名称 关注 地址 -->
+  <view class="user flex flex-alignItems">
+    <!-- 头像 -->
+    <view class="head">
+      <image src="{{videoInfo.userLogo}}" class="head-pic"></image>
+    </view>
+    <view class="user-rf">
+      <!-- 名称 -->
+      <view class="name hide1">
+        {{videoInfo.userName}}
+      </view>
+      <!-- 地址 -->
+      <view class="site flex flex-alignItems">
+        <image src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/weizhi.png" class="address"></image>
+        <view class="site-child hide1">{{videoInfo.address}}</view>
+      </view>
+    </view>
+  </view>
 
-<cover-image src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoplay_btn.png" class="play"  wx:if="{{playMark==1}}" bindtap="tabVideo"></cover-image>
+  <view class="icon-box">
+    <!-- 点赞 -->
+    <view class="icon-list">
+      <image class="dianzan" src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoPlayH5/video_like_praise.png" wx:if="{{videoInfo.isLike!=2}}"></image>
+      <image class="dianzan" src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoPlayH5/video_info_praise.png" wx:else></image>
+      <view>{{videoInfo.likeCount>0?videoInfo.likeCount:'点赞'}}</view>
+    </view>
 
-<!-- 动态修改视频id无法拿到最新的实例 视频有封面的情况下会闪烁 video动态修改src需要一点时间缓冲 很影响性能 会影响滑动效果-->
-<!-- 强制500ms间隔允许滑动？ -->
+    <!-- 评论 -->
+    <view class="icon-list">
+      <image class="pinglun" src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoPlayH5/video_info_comments.png" mode=""></image>
+      <view class="font-list">{{videoInfo.commentNum>0?videoInfo.commentNum:'评论'}}</view>
+    </view>
+
+    <!-- 分享 -->
+    <button class="icon-list" open-type="share">
+      <image class="fenxiang" src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoPlayH5/video_info_share.png"></image>
+      <view>转发</view>
+    </button>
+  </view>
+
+  <!-- 说明 -->
+  <view class="tag hide2">
+    {{videoInfo.videoExplain}}
+  </view>
+</view>
